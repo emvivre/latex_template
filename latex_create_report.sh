@@ -36,8 +36,8 @@ BEAMER_PREAMBULE='\documentclass[utf8x]{beamer}
 
 BEAMER_CONTENT='\title[SUBTITLE]{SUBJECT}
 \subtitle{SUBTITLE (DATE)}
-\author[François Lozes]{
-  François Lozes
+\author[FIRSTNAME LASTNAME]{
+  FIRSTNAME LASTNAME
 }
 \institute[GREYC]{}
 \date{}
@@ -79,7 +79,6 @@ NO_BEAMER_PREAMBULE="\documentclass[12pt,utf8x]{article}
 \rfoot{}
 \renewcommand{\footrulewidth}{0.4pt}
 
-\usepackage{verbatim}
 \usepackage{spverbatim}
 \usepackage{enumitem}
 \usepackage{eurosym}
@@ -97,7 +96,7 @@ else
 fi
 
 PROJECT_NAME="$1"
-echo -e "all:\n\tpdflatex -halt-on-error ${PROJECT_NAME}.tex\n#\tbibtex ${PROJECT_NAME}\n\tpdflatex -halt-on-error ${PROJECT_NAME}.tex" > Makefile
+echo -e "all:\n\txelatex -halt-on-error ${PROJECT_NAME}.tex\n#\tbibtex ${PROJECT_NAME}\n\txelatex -halt-on-error ${PROJECT_NAME}.tex" > Makefile
 echo "$PREAMBULE" > ${PROJECT_NAME}.tex
 echo '
 \usepackage{tikz}
